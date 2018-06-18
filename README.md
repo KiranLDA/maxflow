@@ -1,6 +1,6 @@
 # Package maxflow
 
-One Paragraph of project description goes here
+This packages provides a set of functions to set up a connectivity matrix, and then use this matrix to calculate the maximum flow of birds/animal through the migratory network
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-This packages need to be installed for it to work
+These packages need to be installed for it to work
 
 ```r
 install.packages("fields")
