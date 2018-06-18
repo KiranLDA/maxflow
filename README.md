@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 This packages need to be installed for it to work
 
-```
+```r
 install.packages("fields")
 install.packages("sp")
 install.packages("stats)
@@ -20,13 +20,13 @@ install.packages("stats)
 
 To install this package from github, make sure you first have `devtools` installed.
 
-```
+```r
 install.packages("devtools")
 ```
 
 Once devtools is installed, type:
 
-```
+```r
 library(devtools)
 devtools::install_github("KiranLDA/maxflow")
 ```
@@ -36,11 +36,20 @@ End with an example of getting some data out of the system or using it for a lit
 
 To make sure the package works run the following
 
-```
+```r
+# load library
 library(maxflow)
+
+# Simulate 10 fake tracks with a mean distance of 500km
 tracks <- rnorm(10, 500, 200)
+
+# Create a fake list of sites animals were seen at with latitude, longitude and number of anumals seen there 
 dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
+
+# create a distance matrix
 dist <- Point_2_Distance_Network(dta)
+
+# calculate the probability of going between these sites given the distance the animal can travel
 Distance_Probability(tracks, dist, adjust=2, plot=TRUE)
 
 ```
