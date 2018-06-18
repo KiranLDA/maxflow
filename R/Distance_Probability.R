@@ -1,6 +1,6 @@
-#' Only allow the network to flow from source to sink
+#' Calculate the distance probability
 #'
-#' @description This function replaces the bottom side of the distance network with zeroes. This ensures that everything can only go in one direction. i.e. from code example A to B, A to C, A to D, B to C, B to D and C to D
+#' @description This function calculates the probability of travelling from one point to the next given the distance between the points and the distance the species would normally travel in one go and
 #'
 #' @param tracks this is a series of distances travelled - for instance a distance that a bird has been observed to fly between two sites
 #' @param dist This is a distance matrix between two sites
@@ -14,7 +14,6 @@
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
 #' dist <- Point_2_Distance_Network(dta)
 #' Distance_Probability(tracks, dist, adjust=2, plot=TRUE)
-#'
 #'
 #'
 #' @export

@@ -2,7 +2,7 @@
 % Please edit documentation in R/Distance_Probability.R
 \name{Distance_Probability}
 \alias{Distance_Probability}
-\title{Only allow the network to flow from source to sink}
+\title{Calculate the distance probability}
 \usage{
 Distance_Probability(tracks, dist, adjust = 2, plot = TRUE)
 }
@@ -19,14 +19,13 @@ Distance_Probability(tracks, dist, adjust = 2, plot = TRUE)
 A matrix of probybilityx
 }
 \description{
-This function replaces the bottom side of the distance network with zeroes. This ensures that everything can only go in one direction. i.e. from code example A to B, A to C, A to D, B to C, B to D and C to D
+This function calculates the probability of travelling from one point to the next given the distance between the points and the distance the species would normally travel in one go and
 }
 \examples{
 tracks <- rnorm(10, 500, 200)
 dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
 dist <- Point_2_Distance_Network(dta)
 Distance_Probability(tracks, dist, adjust=2, plot=TRUE)
-
 
 
 }

@@ -6,7 +6,7 @@
 #' @examples
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
 #' Point_2_Distance_Network(dta)
-#' testing
+#'
 #'
 #' @export
 Point_2_Distance_Network <- function(dta){
