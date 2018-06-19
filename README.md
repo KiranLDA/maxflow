@@ -50,7 +50,19 @@ dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
 dist <- Point_2_Distance_Network(dta)
 
 # calculate the probability of going between these sites given the distance the animal can travel
-Distance_Probability(tracks, dist, adjust=2, plot=TRUE)
+Dist_P <- Distance_Probability(tracks, dist, adjust=2, plot=TRUE)
+
+# Calculate proportion going into a node
+Pop_P <- Population_Proportion(dta, 300)
+
+# make birds/animals prefer sites which a larger proportion of the population has been seen and where the distance is better
+network <- Dist_P * Pop_P
+
+# Make the network directed
+network <- Make_Directed_Network(network, include_diagonal = TRUE)
+
+#Add supersource and sink nodes
+network <- Add_Source_Sink(network)
 
 ```
 
