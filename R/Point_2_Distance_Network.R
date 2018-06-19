@@ -1,4 +1,5 @@
 #' Make a distance matrix
+#'
 #' @param dta This is a dataframe. Columns of interest must be named: Site, Lat (for latitude), Lon (for longitude).
 #'
 #' @return A distance matrix in kilometres between all pairs sites

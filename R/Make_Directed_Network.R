@@ -3,6 +3,8 @@
 #' @description This function replaces the bottom side of the distance network with zeroes. This ensures that everything can only go in one direction. i.e. from code example A to B, A to C, A to D, B to C, B to D and C to D
 #'
 #' @param dist This is a distance matrix between two sites
+#' @param include_diagonal `TRUE` means the diagonal is replaced (such that animals cannot remain in a site) and `FALSE` means they are not
+#' @param replaceWith Replace lower part of distance matrix with e.g. zeros or NAs, default is set to 0
 #'
 #' @return A distance matrix in kilometres between all pairs sites
 #'
@@ -13,7 +15,7 @@
 #'
 #'
 #' @export
-Make_Directed_Network <- function(dist){
-  dist[lower.tri(dist, diag = FALSE)] <- 0
+Make_Directed_Network <- function(dist, include_diagonal= TRUE, replaceWith = 0){
+  dist[lower.tri(dist, diag = include_diagonal)] <- replaceWith
   return(dist)
 }

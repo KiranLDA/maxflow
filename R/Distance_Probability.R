@@ -7,7 +7,7 @@
 #' @param adjust this is a parameter for estimating the Kernal density of the tracked data. see '?density' for more details. The default is 2, but increasing will flatten and decreasing will add peaks.
 #' @param plot Logical (true or false) for deciding whether or not to plot the kernal density distribution
 #'
-#' @return A matrix of probybilityx
+#' @return A matrix of probybilities showing how likely a bird can go from one site to the next given the distance between them
 #'
 #' @examples
 #' tracks <- rnorm(10, 500, 200)

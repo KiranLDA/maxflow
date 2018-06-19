@@ -16,7 +16,7 @@ Distance_Probability(tracks, dist, adjust = 2, plot = TRUE)
 \item{plot}{Logical (true or false) for deciding whether or not to plot the kernal density distribution}
 }
 \value{
-A matrix of probybilityx
+A matrix of probybilities showing how likely a bird can go from one site to the next given the distance between them
 }
 \description{
 This function calculates the probability of travelling from one point to the next given the distance between the points and the distance the species would normally travel in one go and

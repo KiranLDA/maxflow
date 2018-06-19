@@ -4,7 +4,7 @@ This packages provides a set of functions to set up a connectivity matrix, and t
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
 ### Prerequisites
 
@@ -43,10 +43,10 @@ library(maxflow)
 # Simulate 10 fake tracks with a mean distance of 500km
 tracks <- rnorm(10, 500, 200)
 
-# Create a fake list of sites animals were seen at with latitude, longitude and number of anumals seen there 
+# Create a fake list of sites where animals were seen at, with latitude, longitude and number of anumals seen there 
 dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
 
-# create a distance matrix
+# create a distance matrix based on these data
 dist <- Point_2_Distance_Network(dta)
 
 # calculate the probability of going between these sites given the distance the animal can travel

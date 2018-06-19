@@ -4,10 +4,14 @@
 \alias{Make_Directed_Network}
 \title{Only allow the network to flow from source to sink}
 \usage{
-Make_Directed_Network(dist)
+Make_Directed_Network(dist, include_diagonal = TRUE, replaceWith = 0)
 }
 \arguments{
 \item{dist}{This is a distance matrix between two sites}
+
+\item{include_diagonal}{`TRUE` means the diagonal is replaced (such that animals cannot remain in a site) and `FALSE` means they are not}
+
+\item{replaceWith}{Replace lower part of distance matrix with e.g. zeros or NAs, default is set to 0}
 }
 \value{
 A distance matrix in kilometres between all pairs sites
