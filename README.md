@@ -75,3 +75,8 @@ See also the [journal article](http://onlinelibrary.wiley.com/doi/10.1111/cobi.1
 ## License
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](https://github.com/KiranLDA/maxflow/blob/master/LICENSE) file for details
+
+
+## References
+
+Dhanjal‐Adams, K. L., Klaassen, M. , Nicol, S. , Possingham, H. P., Chadès, I. and Fuller, R. A. (2017), Setting conservation priorities for migratory networks under uncertainty. Conservation Biology, 31: 646-656. [doi:10.1111/cobi.12842](https://doi.org/10.1111/cobi.12842) 
