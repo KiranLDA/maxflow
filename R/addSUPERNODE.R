@@ -8,13 +8,13 @@
 #'
 #' @examples
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
-#' dist <- Point_2_Distance_Network(dta)
-#' Add_Source_Sink(dist)
+#' dist <- point2DIST(dta)
+#' addSUPERNODE(dist)
 #'
 #'
 #'
 #' @export
-Add_Source_Sink <- function(dist){
+addSUPERNODE <- function(dist){
   dist = rbind(matrix(0,1,dim(dist)[2]),
                dist,
                matrix(0,1,dim(dist)[2]))

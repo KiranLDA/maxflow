@@ -6,11 +6,11 @@
 #'
 #' @examples
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
-#' Point_2_Distance_Network(dta)
+#' point2DIST(dta)
 #'
 #'
 #' @export
-Point_2_Distance_Network <- function(dta){
+point2DIST <- function(dta){
   # Project latitude and longitude
   pts  = SpatialPoints(coords = cbind(dta$Lat, dta$Lon), proj4string=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs "))
   # Calculate earth distances and spit out distance matrix

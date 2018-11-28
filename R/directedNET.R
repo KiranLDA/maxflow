@@ -10,12 +10,12 @@
 #'
 #' @examples
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
-#' dist <- Point_2_Distance_Network(dta)
-#' Make_Directed_Network(dist)
+#' dist <- point2DIST(dta)
+#' directedNET(dist)
 #'
 #'
 #' @export
-Make_Directed_Network <- function(dist, include_diagonal= TRUE, replaceWith = 0){
+directedNET <- function(dist, include_diagonal= TRUE, replaceWith = 0){
   dist[lower.tri(dist, diag = include_diagonal)] <- replaceWith
   return(dist)
 }

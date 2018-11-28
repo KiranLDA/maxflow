@@ -64,6 +64,36 @@ network <- Make_Directed_Network(network, include_diagonal = TRUE)
 #Add supersource and sink nodes
 network <- Add_Source_Sink(network)
 
+
+
+# load library
+library(maxflow)
+
+# Simulate 10 fake tracks with a mean distance of 500km
+tracks <- rnorm(10, 500, 200)
+
+# Create a fake list of sites where animals were seen at, with latitude, longitude and number of anumals seen there 
+dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
+
+# create a distance matrix based on these data
+dist <- point2DIST(dta)
+
+# calculate the probability of going between these sites given the distance the animal can travel
+Dist_P <- distPROB(tracks, dist, adjust=2, plot=TRUE)
+
+# Calculate proportion going into a node
+Pop_P <- popPROP(dta, 300)
+
+# make birds/animals prefer sites which a larger proportion of the population has been seen and where the distance is better
+network <- Dist_P * Pop_P
+
+# Make the network directed
+network <- directedNET(network, include_diagonal = TRUE)
+
+#Add supersource and sink nodes
+network <- addSUPERNODE(network)
+
+
 ```
 
 ## Authors

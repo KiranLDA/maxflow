@@ -7,17 +7,17 @@
 #' @param adjust this is a parameter for estimating the Kernal density of the tracked data. see '?density' for more details. The default is 2, but increasing will flatten and decreasing will add peaks.
 #' @param plot Logical (true or false) for deciding whether or not to plot the kernal density distribution
 #'
-#' @return A matrix of probybilities showing how likely a bird can go from one site to the next given the distance between them
+#' @return A matrix of probabilities showing how likely a bird can go from one site to the next given the distance between them
 #'
 #' @examples
 #' tracks <- rnorm(10, 500, 200)
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
-#' dist <- Point_2_Distance_Network(dta)
-#' Distance_Probability(tracks, dist, adjust=2, plot=TRUE)
+#' dist <- point2DIST(dta)
+#' distPROB(tracks, dist, adjust=2, plot=TRUE)
 #'
 #'
 #' @export
-Distance_Probability <- function(tracks, dist, adjust = 2, plot= TRUE){
+distPROB <- function(tracks, dist, adjust = 2, plot= TRUE){
   prob=approxfun(density(tracks,adjust=adjust))
   if (plot) plot(density(tracks,adjust=adjust), xlab= "Distance")
   dist_prob = apply(dist,c(1,2),function(x) prob(x))

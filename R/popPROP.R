@@ -9,14 +9,14 @@
 #'
 #' @examples
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
-#' Population_Proportion(dta, 300)
+#' popPROP(dta, 300)
 #'
 #'
 #'
 #' @export
-Population_Proportion <- function(dta, population = 1000){
+popPROP <- function(dta, population = 1000){
   #create dataset to fill
-  dist = Point_2_Distance_Network(dta)
+  dist = point2DIST(dta)
   #get population information from each site
   for (i in 1:(dim(dist)[2])){
     dist[i,1:(dim(dist)[2])]= dta$Pop/population
