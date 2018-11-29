@@ -15,7 +15,7 @@
 #' dist <- point2DIST(dta)
 #' distPROB(tracks, dist, adjust=2, plot=TRUE)
 #'
-#'
+#' @importFrom stats approxfun density
 #' @export
 distPROB <- function(tracks, dist, adjust = 2, plot= TRUE){
   prob=approxfun(density(tracks,adjust=adjust))

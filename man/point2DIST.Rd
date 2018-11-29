@@ -4,7 +4,8 @@
 \alias{point2DIST}
 \title{Make a distance matrix}
 \usage{
-point2DIST(dta)
+point2DIST(dta, miles = FALSE,
+  proj4string = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs ")
 }
 \arguments{
 \item{dta}{This is a dataframe. Columns of interest must be named: Site, Lat (for latitude), Lon (for longitude).}
@@ -18,6 +19,5 @@ Make a distance matrix
 \examples{
 dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
 point2DIST(dta)
-
 
 }

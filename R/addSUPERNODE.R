@@ -3,6 +3,8 @@
 #' @description These nodes will later act as source and sink nodes which initiate and terminate the population flow through the network. More specifically, they are added to the distance matrix with values of zero (for the time being)
 #'
 #' @param dist This is a distance matrix between two sites
+#' @param sources vector of site names to be added as sources from the supersource node
+#' @param sinks vector of site names to be added as sinks to the supersink node
 #'
 #' @return A distance matrix in kilometres between all pairs sites
 #'
@@ -14,14 +16,18 @@
 #'
 #'
 #' @export
-addSUPERNODE <- function(dist){
+addSUPERNODE <- function(dist, sources, sinks){
   dist = rbind(matrix(0,1,dim(dist)[2]),
                dist,
                matrix(0,1,dim(dist)[2]))
   dist = cbind(matrix(0,dim(dist)[1],1),
                dist,
                matrix(0,dim(dist)[1],1))
-  colnames(dist)[1] = rownames(dist)[1] = "source"
-  colnames(dist)[length(dist[1,])] = rownames(dist)[length(dist[1,])] = "sink"
+
+  colnames(dist)[1] = rownames(dist)[1] = "supersource"
+  colnames(dist)[length(dist[1,])] = rownames(dist)[length(dist[1,])] = "supersink"
+
+  dist[1,colnames(dist) %in% source]=1
+  dist[rownames(dist) %in% sink, ncol(dist)]=1
   return(dist)
 }

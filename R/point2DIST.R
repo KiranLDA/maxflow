@@ -8,13 +8,16 @@
 #' dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
 #' point2DIST(dta)
 #'
-#'
+#' @importFrom fields rdist.earth
+#' @importFrom sp SpatialPoints CRS
 #' @export
-point2DIST <- function(dta){
+point2DIST <- function(dta, miles=FALSE,
+                       proj4string = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs "){
   # Project latitude and longitude
-  pts  = SpatialPoints(coords = cbind(dta$Lat, dta$Lon), proj4string=CRS("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs "))
+  pts  = SpatialPoints(coords = cbind(dta$Lat, dta$Lon),
+                       proj4string=CRS(proj4string))
   # Calculate earth distances and spit out distance matrix
-  dist = rdist.earth(pts@coords)
+  dist = rdist.earth(pts@coords, miles=miles)
   colnames(dist) = rownames(dist) = dta$Site
   return(dist)
 }

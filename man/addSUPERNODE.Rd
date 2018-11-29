@@ -4,10 +4,14 @@
 \alias{addSUPERNODE}
 \title{Add supersource and supersink nodes}
 \usage{
-addSUPERNODE(dist)
+addSUPERNODE(dist, sources, sinks)
 }
 \arguments{
 \item{dist}{This is a distance matrix between two sites}
+
+\item{sources}{vector of site names to be added as sources from the supersource node}
+
+\item{sinks}{vector of site names to be added as sinks to the supersink node}
 }
 \value{
 A distance matrix in kilometres between all pairs sites
