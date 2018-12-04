@@ -21,5 +21,6 @@ distPROB <- function(tracks, dist, adjust = 2, plot= TRUE){
   prob=approxfun(density(tracks,adjust=adjust))
   if (plot) plot(density(tracks,adjust=adjust), xlab= "Distance")
   dist_prob = apply(dist,c(1,2),function(x) prob(x))
+  dist_prob[is.na(dist_prob)]=0
   return(dist_prob)
 }

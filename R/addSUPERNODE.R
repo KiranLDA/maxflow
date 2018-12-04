@@ -29,5 +29,7 @@ addSUPERNODE <- function(dist, sources, sinks){
 
   dist[1,colnames(dist) %in% sources]=Inf
   dist[rownames(dist) %in% sinks, ncol(dist)]=Inf
+
+  dist[is.na(dist)] = 0
   return(dist)
 }

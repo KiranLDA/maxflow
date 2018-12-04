@@ -19,7 +19,8 @@ This function calculates determines the proportion of the population flowing int
 }
 \examples{
 dta <- data.frame(Site= LETTERS[1:4], Lat= 1:4, Lon= 5:8, Pop=100:103)
-popPROP(dta, 300)
+network <- point2DIST(dta)
+popPROP(network, 300)
 
 
 

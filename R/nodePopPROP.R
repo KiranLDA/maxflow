@@ -21,5 +21,6 @@ nodePopPROP <- function(dta, population = 1000){
   for (i in 1:(dim(dist)[2])){
     dist[i,1:(dim(dist)[2])]= dta$Pop/population
   }
+  dist[is.na(dist)] = 0
   return(dist)
 }

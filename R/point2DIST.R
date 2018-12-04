@@ -19,5 +19,6 @@ point2DIST <- function(dta, miles=FALSE,
   # Calculate earth distances and spit out distance matrix
   dist = rdist.earth(pts@coords, miles=miles)
   colnames(dist) = rownames(dist) = dta$Site
+  dist[is.na(dist)] = 0
   return(dist)
 }

@@ -33,5 +33,7 @@ absAZIMUTH <- function(dist, lonlats){
    return(abs(cos(z*pi/180)))}))
 
  output[which(dist==0)] = 0
+
+ output[is.na(output)]= 0
  return(output)
 }
