@@ -27,7 +27,7 @@ addSUPERNODE <- function(dist, sources, sinks){
   colnames(dist)[1] = rownames(dist)[1] = "supersource"
   colnames(dist)[length(dist[1,])] = rownames(dist)[length(dist[1,])] = "supersink"
 
-  dist[1,colnames(dist) %in% source]=1
-  dist[rownames(dist) %in% sink, ncol(dist)]=1
+  dist[1,colnames(dist) %in% sources]=Inf
+  dist[rownames(dist) %in% sinks, ncol(dist)]=Inf
   return(dist)
 }

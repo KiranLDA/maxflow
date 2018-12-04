@@ -14,12 +14,25 @@
 #'
 #'
 #' @export
-popPROP <- function(dta, population = 1000){
-  #create dataset to fill
-  dist = point2DIST(dta)
-  #get population information from each site
-  for (i in 1:(dim(dist)[2])){
-    dist[i,1:(dim(dist)[2])]= dta$Pop/population
+popPROP <- function(network, population){
+  prop = t(apply(network,1,
+                   function(x) x[which(!is.na(x))]/
+                     sum(x,na.rm=TRUE)))
+  prop[1,] = population*prop[1,]
+  # output = prop
+  # output[] = c(prop[1,],unlist(lapply(2:nrow(prop), function(i) {prop[i,] <- sum(prop[1:(i-1),i])*prop[i,]})))
+  for(i in 2:nrow(prop)){
+    prop[i,] = sum(prop[1:(i-1),i])*prop[i,]
   }
-  return(dist)
+  prop[is.na(prop)] <- 0
+  return(prop)
 }
+# popPROP <- function(dta, population = 1000){
+#   #create dataset to fill
+#   dist = point2DIST(dta)
+#   #get population information from each site
+#   for (i in 1:(dim(dist)[2])){
+#     dist[i,1:(dim(dist)[2])]= dta$Pop/population
+#   }
+#   return(dist)
+# }
