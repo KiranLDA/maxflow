@@ -1,20 +1,15 @@
 # Package maxflow
 
-This packages provides a set of functions to set up a connectivity matrix, and then use this matrix to calculate the maximum flow of birds/animal through the migratory network
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
-
-
 <img align="center" src="https://kirandhanjaladams.weebly.com/uploads/8/0/0/5/80051220/turnstones_1_orig.png">
 
-### Prerequisites
+The methods from this package are based on a paper published in [Conservation Biology](https://doi.org/10.1111/cobi.12842). The packages provides a set of functions to set up a migratory connectivity matrix, and then use this matrix to calculate the maximum flow of birds/animal through the migratory network, and then prioritise sites for conservation.
+
+## Prerequisites
 
 This package relies on ´igraph´, ´fields´, ´sp´ and ´stats´. If there are any problem installing maxflow, ensure these are working.
 
 
-### Installing
+## Installing
 
 To install this package from github, make sure you first have `devtools` installed.
 
@@ -30,6 +25,7 @@ devtools::install_github("KiranLDA/maxflow")
 
 ## Load and test
 
+The package relies on there being a little tracking data (start & stop latitude and longitude of a migratory movement) and a list of potential stopover sites with counts. The method then estimates the likelihood of individuals moving between sites based on the distance between those sites and the relative number of individuals recorded at each site and allocates the population through this network.
 
 ```r
 # load library
@@ -68,17 +64,25 @@ network <- addSUPERNODE(network, sources=c("A","B"), sinks= c("D", "E"))
 network
 ```
 
-### Creating a random network and prioritising sites
+### Creating a random network prioritising sites
+
+It's also possible to generate random networks
 
 ```r
 pop=100000
 rand_net = randomNET(nsites=15,pop=pop)
+```
 
+# Prioritising sites
+
+This uses a reverse greedy approch to find sites which contribute least to population flow, remove them, and reallocate population flow through the network based on remaining sites. This process is done iteratively until no sites are left.
+
+```r
 # priotise sites according to flow through network
 prioritiseFLOW(rand_net$network, rand_net$sites)
 ```
 
-<img align="center" src="https://raw.githubusercontent.com/KiranLDA/maxflow/master/pictures/netowrk_prioritisation.png">
+<img align="center" src="https://raw.githubusercontent.com/KiranLDA/maxflow/master/pictures/netowrk%20prioritisation.png">
 
 ## Authors
 
