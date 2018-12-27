@@ -1,4 +1,4 @@
-# Package maxflow
+# Package migflow
 
 <img align="center" src="https://kirandhanjaladams.weebly.com/uploads/8/0/0/5/80051220/turnstones_1_orig.png">
 
