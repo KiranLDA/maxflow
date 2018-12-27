@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' pop=100000
-#' rand_net = randomNET(pop=pop)
+#' rand_net = randomNET(nsites=15,pop=pop)
 #'
 #' # priotise sites according to flow through network
 #' prioritiseFLOW(rand_net$network, rand_net$sites)

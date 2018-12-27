@@ -6,15 +6,13 @@ This packages provides a set of functions to set up a connectivity matrix, and t
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
+
+<img align="center" src="https://kirandhanjaladams.weebly.com/uploads/8/0/0/5/80051220/turnstones_1_orig.png">
+
 ### Prerequisites
 
-These packages need to be installed for it to work
+This package relies on ´igraph´, ´fields´, ´sp´ and ´stats´. If there are any problem installing maxflow, ensure these are working.
 
-```r
-install.packages("fields")
-install.packages("sp")
-install.packages("stats)
-```
 
 ### Installing
 
@@ -24,17 +22,14 @@ To install this package from github, make sure you first have `devtools` install
 install.packages("devtools")
 ```
 
-Once devtools is installed, type:
+Once devtools is installed, use:
 
 ```r
-library(devtools)
 devtools::install_github("KiranLDA/maxflow")
 ```
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Load and test
 
-To make sure the package works run the following
 
 ```r
 # load library
@@ -72,6 +67,18 @@ network <- popPROP(network, 300000)
 network <- addSUPERNODE(network, sources=c("A","B"), sinks= c("D", "E"))
 network
 ```
+
+### Creating a random network and prioritising sites
+
+```r
+pop=100000
+rand_net = randomNET(nsites=15,pop=pop)
+
+# priotise sites according to flow through network
+prioritiseFLOW(rand_net$network, rand_net$sites)
+```
+
+<img align="center" src="https://raw.githubusercontent.com/KiranLDA/maxflow/master/pictures/netowrk_prioritisation.png">
 
 ## Authors
 
